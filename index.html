@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriplus Kenya | Sustainable Agribusiness</title>
+    <style>
+        /* --- GLOBAL STYLE RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-logo-box {
+            height: 90px;       
+            width: 180px;       
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-logo-box img {
+            max-height: 140%;   
+            max-width: 100%;
+            object-fit: contain;
+            transform: scale(1.3); 
+        }
+
+        .menu-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.2s ease;
+        }
+
+        .menu-links a:hover {
+            color: #1da884;
+        }
+
+        /* --- HERO BANNER --- */
+        .hero-banner {
+            background: linear-gradient(rgba(15, 43, 36, 0.8), rgba(19, 74, 60, 0.85)), 
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?q=80&w=1200') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            color: #e2e8f0;
+        }
+
+        .action-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #1da884; 
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(29, 168, 132, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #168568;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTION STRUCTURE --- */
+        .content-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #111827;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #1da884;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- SEEDLINGS CATALOG GRID --- */
+        .seedlings-section {
+            background-color: #ffffff;
+        }
+
+        .group-heading {
+            text-align: left;
+            font-size: 22px;
+            color: #137259;
+            margin: 40px auto 25px auto;
+            max-width: 1130px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+            width: 100%;
+        }
+
+        .seedling-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .seedling-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            width: 30%;
+            min-width: 280px;
+            max-width: 360px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .seedling-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .seedling-img-holder {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e2e8f0;
+        }
+
+        .seedling-info {
+            padding: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f1f8f6;
+            color: #1da884;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .seedling-card h3 {
+            font-size: 18px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .seedling-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* --- SOLUTIONS SERVICES --- */
+        .services-section {
+            background-color: #f1f5f9;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 360px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #1da884;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* --- CONTACT & ORDER FORM --- */
+        .contact-section {
+            background-color: #ffffff;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 45, 36, 0.08);
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-container label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-container input, 
+        .form-container select, 
+        .form-container textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #1e293b;
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        .form-container input:focus, 
+        .form-container select:focus, 
+        .form-container textarea:focus {
+            outline: none;
+            border-color: #1da884;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(29, 168, 132, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #1da884;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #168568;
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: #0f2d24;
+            color: #94a3b8;
+            padding: 60px 8% 30px 8%;
+            text-align: center;
+        }
+
+        .site-footer h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .copyright-text {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* --- FLOATING WHATSAPP ICON --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .seedling-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-nav">
+        <div class="brand-logo-box">
+            <img src="logo.png" alt="Agriplus Kenya Logo">
+        </div>
+        <nav>
+            <ul class="menu-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#seedlings">Seedlings</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact-form-section">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-banner">
+        <div class="hero-text">
+            <h1>Innovating Kenyan Agriculture</h1>
+            <p>Providing premium smart-farming strategies, sustainable agro-supply chains, and professional agronomy consulting.</p>
+            <a href="#seedlings" class="action-btn">Explore Seedlings</a>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2 class="section-title">Who We Are</h2>
+        <p style="max-width: 750px; margin: 25px auto 0 auto; color: #475569; font-size: 18px;">
+            Agriplus Kenya empowers local growers and commercial agribusinesses by bridging the gap between modern technology and traditional farming. We optimize crop yields and build sustainable production loops across the region.
+        </p>
+    </section>
+
+    <section id="seedlings" class="content-section seedlings-section">
+        <h2 class="section-title">Our Seedling Catalog</h2>
+        <p style="max-width: 750px; margin: 0 auto 20px auto; color: #475569;">
+            We propagate certified, high-yield varieties optimized for different ecological zones in Kenya.
+        </p>
+        
+        <h3 class="group-heading">1. High-Value Fruit Trees</h3>
+        <div class="seedling-grid">
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('pixie.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge" style="color: #ea580c; background-color: #fff7ed;">High Demand</span>
+                    <h3>Grafted Pixie Orange</h3>
+                    <p>Sweet, seedless, and golden-orange fruits. Highly drought-resistant and perfectly suited for semi-arid areas like Ukambani, Coast, and parts of Rift Valley.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('avocado.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge" style="color: #16a34a; background-color: #f0fdf4;">Export Grade</span>
+                    <h3>Grafted Hass Avocado</h3>
+                    <p>A-grade grafted seedlings utilizing robust local rootstocks. Exceptional oil content, high demand for European and Asian export markets.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('mango-apple.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge">Popular Fruit</span>
+                    <h3>Apple Mango Grafts</h3>
+                    <p>Rich yellow-red skins, fiber-free sweet flesh, and large fruit sizing. Highly popular in local Kenyan open markets and juice processing industries.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('mango-washington.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge">Premium Selection</span>
+                    <h3>Washington Navel Mango</h3>
+                    <p>An exotic, heavy-bearing green-to-orange mango variety. Renowned for its unique aromatic flavor profiling and superb shipping durability.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="group-heading">2. Commercial Cash Crops</h3>
+        <div class="seedling-grid">
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('macadamia.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge" style="color: #854d0e; background-color: #fefce8;">Long-term Wealth</span>
+                    <h3>Grafted Macadamia Nuts</h3>
+                    <p>Early-bearing, low-maintenance, high-kernel-recovery varieties (Murang'a 20 / EMB-1). Excellent passive income generator for medium-to-high altitudes.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card">
+                <div class="seedling-img-holder" style="background-image: url('coffee.jpg');"></div>
+                <div class="seedling-info">
+                    <span class="badge" style="color: #2563eb; background-color: #eff6ff;">Certified Cash Crop</span>
+                    <h3>Ruiru 11 / Batian Coffee</h3>
+                    <p>High-density planting varieties featuring absolute immunity to Coffee Berry Disease (CBD) and Leaf Rust. Reduces spraying costs significantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="content-section services-section">
+        <h2 class="section-title">Our Solutions</h2>
+        <div class="cards-container">
+            <div class="service-card">
+                <h3>Agronomy Consulting</h3>
+                <p>Professional soil mapping, data-driven crop rotation frameworks, and customized management guidelines to skyrocket structural yields.</p>
+            </div>
+            <div class="service-card">
+                <h3>Smart Supply Chain</h3>
+                <p>Connecting premium fresh produce directly from farm-gates to high-value markets, reducing logistical waste across East Africa.</p>
+            </div>
+            <div class="service-card">
+                <h3>Agri-Tech Integration</h3>
+                <p>Deploying efficient drip irrigation, solar systems, and clean resource analytics built specifically for the modern climate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form-section" class="content-section contact-section">
+        <h2 class="section-title">Place an Inquiry / Order</h2>
+        <p style="max-width: 600px; margin: 0 auto 40px auto; color: #475569;">
+            Ready to transform your farm? Fill out the form below with your seedling requirements, and our team will contact you immediately via phone call or WhatsApp.
+        </p>
+
+        <div class="form-container">
+            <form id="agriplusOrderForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="farmer-name">Your Full Name</label>
+                    <input type="text" id="farmer-name" placeholder="e.g., John Kamau" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="e.g., 0712345678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Your Location / Farm Site</label>
+                        <input type="text" id="location" placeholder="e.g., Embu, Meru, Machakos" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="seedling-select">Select Primary Seedling of Interest</label>
+                    <select id="seedling-select" required>
+                        <option value="" disabled selected>-- Choose a crop --</option>
+                        <option value="Grafted Pixie Orange">Grafted Pixie Orange</option>
+                        <option value="Grafted Hass Avocado">Grafted Hass Avocado</option>
+                        <option value="Grafted Macadamia Nuts">Grafted Macadamia Nuts</option>
+                        <option value="Apple Mango Grafts">Apple Mango Grafts</option>
+                        <option value="Ruiru 11 / Batian Coffee">Ruiru 11 / Batian Coffee</option>
+                        <option value="Washington Navel Mango">Washington Navel Mango</option>
+                        <option value="Other / Mixed Bulk Order">Other / Mixed Bulk Order</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Estimated Quantity & Special Instructions</label>
+                    <textarea id="message" rows="4" placeholder="Tell us how many seedlings you need..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Order via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <h2>Connect With Agriplus</h2>
+        <p class="footer-info">Partner with us for reliable, high-yield agricultural transformations.<br>Email: info@agripluskenya.com | Nairobi, Kenya</p>
+        <div class="copyright-text">
+            &copy; 2026 Agriplus Kenya. All rights reserved.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/254745948200?text=Hi%20Agriplus%20Kenya,%20I%20visited%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20seedlings." class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.973 0c3.184.001 6.177 1.242 8.426 3.496 2.248 2.253 3.487 5.247 3.486 8.43-.004 6.623-5.34 11.97-11.914 11.97-1.993-.001-3.953-.502-5.707-1.454L0 24zm6.59-4.846c1.66.986 3.288 1.478 4.956 1.479 5.352 0 9.703-4.348 9.705-9.708.001-2.597-1.01-5.038-2.85-6.879C16.559 2.205 14.12 1.196 11.53 1.196c-5.36 0-9.71 4.352-9.713 9.712-.001 1.776.471 3.42 1.364 4.896l-.993 3.627 3.71-.973zm11.233-5.467c-.31-.156-1.83-.903-2.112-1.004-.282-.102-.489-.153-.693.153-.204.307-.792.997-.971 1.203-.178.205-.357.23-.667.074-.31-.155-1.308-.483-2.493-1.54-1.228-1.096-1.325-1.745-1.554-2.112-.061-.103-.117-.184-.16-.251-.23-.357-.026-.55.153-.73.16-.16.356-.413.535-.62.178-.206.238-.352.357-.588.119-.236.06-.442-.03-.598-.09-.155-.693-1.671-.95-2.288-.25-.6-.505-.519-.693-.52-.179-.001-.384-.001-.59-.001-.205 0-.54.077-.822.384-.282.307-1.077 1.054-1.077 2.57s1.107 2.985 1.26 3.19c.154.207 2.18 3.329 5.282 4.67 1.218.525 2.13.783 2.822.946.737.173 1.408.149 1.938.07.59-.088 1.83-.747 2.088-1.433.258-.685.258-1.274.18-1.4-.078-.125-.282-.204-.592-.36z"/>
+        </svg>
+    </a>
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            // Change this to your exact active WhatsApp business phone number
+            const myWhatsAppNumber = "254712345678"; 
+            
+            const name = document.getElementById('farmer-name').value;
+            const phone = document.getElementById('phone').value;
