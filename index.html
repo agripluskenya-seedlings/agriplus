@@ -3,67 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agriplus Kenya | Professional Nursery</title>
+    <title>Agriplus Kenya | Certified Fruit Tree & Coffee Seedlings Nursery</title>
+    <meta name="description" content="Premium certified grafted fruit tree and coffee seedlings in Embu, Kenya. High-yield Pixie Orange, Hass Avocado, Coffee, Macadamia, and more. Countrywide delivery.">
+    <meta name="keywords" content="Agriplus Kenya, fruit tree seedlings, coffee seedlings Kenya, ruiru 11, batian coffee, pixie orange seedlings, hass avocado Kenya, certified seedlings Embu">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Reset and Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
 
-        /* Navigation & Header */
-        header { background: #0f2d24; color: white; padding: 20px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        /* Navigation Bar */
+        header { 
+            background: #0f2d24; 
+            color: white; 
+            padding: 5px 8%; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo img { 
+            height: 140px; 
+            display: block; 
+            filter: brightness(0) invert(1); 
+            margin: -10px 0;
+        } 
+        nav a { color: #cbd5e1; margin-left: 20px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: #1da884; }
 
-        /* Content Sections */
-        .section { padding: 40px 10%; }
-        h2 { text-align: center; margin-bottom: 20px; color: #0f2d24; }
+        /* Hero Banner Section */
+        .hero-banner { 
+            text-align: center; 
+            padding: 80px 20px; 
+            background: linear-gradient(135deg, #0f2d24 0%, #1a4a3c 100%); 
+            color: white;
+        }
+        .hero-banner h2 { font-size: 38px; margin-bottom: 15px; }
+        .hero-banner p { font-size: 18px; max-width: 600px; margin: 0 auto; color: #cbd5e1; }
 
-        /* Grid Layout */
-        .seedling-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; justify-items: center; }
-        .seedling-card { background: #fff; border-radius: 12px; width: 300px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .seedling-img { height: 200px; background-size: cover; background-position: center; }
-        .info { padding: 20px; }
-        .price { font-weight: bold; color: #1da884; }
+        /* Layout Sections */
+        .section { padding: 70px 8%; }
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 40px; color: #0f2d24; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: #1da884; margin: 10px auto 0; border-radius: 2px; }
 
-        footer { background: #0f2d24; color: white; padding: 40px; text-align: center; }
+        /* About Section Styles */
+        #about { background-color: #ffffff; text-align: center; }
+        .about-text { max-width: 800px; margin: 0 auto; font-size: 17px; color: #475569; }
+
+        /* Grid & Card System */
+        #catalog { background-color: #f1f5f9; }
+        .seedling-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+        .seedling-card { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .seedling-card:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+        
+        /* Image Holders */
+        .seedling-img { 
+            height: 220px; 
+            background-size: cover; 
+            background-position: center; 
+            background-color: #cbd5e1; 
+        }
+
+        /* Information & Badges */
+        .info { padding: 20px; position: relative; }
+        .price-badge { 
+            position: absolute; 
+            top: -20px; 
+            right: 20px; 
+            background: #1da884; 
+            color: white; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            font-size: 14px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .info h3 { font-size: 20px; color: #0f2d24; margin-bottom: 8px; margin-top: 5px; }
+        .info p { color: #64748b; font-size: 14px; }
+
+        /* Value-Added Services Section Layout */
+        #services { background-color: #ffffff; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            border-color: #1da884;
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(15,45,36,0.05);
+        }
+        .service-icon {
+            background: rgba(29, 168, 132, 0.1);
+            color: #1da884;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+        .service-card h3 { color: #0f2d24; font-size: 19px; margin-bottom: 12px; }
+        .service-card p { color: #64748b; font-size: 14px; }
+
+        /* How to Order Layout */
+        #how-to-order { background-color: #f1f5f9; }
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 340px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            background: #0f2d24;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            border: 3px solid #f1f5f9;
+        }
+        .step-card h3 { color: #0f2d24; font-size: 18px; margin: 10px 0 12px; }
+        .step-card p { color: #475569; font-size: 14px; }
+
+        /* FAQ Accordion Layout */
+        #faq { background-color: #ffffff; }
+        .faq-container { max-width: 750px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        details { background: #f8fafc; padding: 18px 22px; border-radius: 8px; border: 1px solid #e2e8f0; transition: 0.3s; }
+        details[open] { background: white; box-shadow: 0 4px 12px rgba(15,45,36,0.1); border-left: 4px solid #1da884; border-right: 1px solid #e2e8f0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        summary { font-weight: 600; font-size: 17px; color: #0f2d24; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '\2b'; font-size: 18px; color: #1da884; font-weight: bold; transition: transform 0.3s; }
+        details[open] summary::after { content: '\2212'; }
+        details p { margin-top: 12px; color: #475569; font-size: 15px; border-top: 1px solid #e2e8f0; padding-top: 10px; }
+
+        /* Location Map Layout Block */
+        #location-hub { background-color: #ffffff; }
+        .location-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .map-frame {
+            flex: 1.2;
+            min-width: 320px;
+            height: 400px;
+        }
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        .location-details {
+            flex: 0.8;
+            padding: 40px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .location-details h3 { color: #0f2d24; font-size: 22px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .location-details h3 i { color: #1da884; }
+        .location-details p { color: #475569; font-size: 15px; margin-bottom: 25px; line-height: 1.7; }
+        .visit-btn {
+            background-color: #0f2d24;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            transition: 0.3s;
+        }
+        .visit-btn:hover { background-color: #1da884; }
+
+        /* Gallery Section Styles */
+        #gallery { background-color: #f1f5f9; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox Full Screen Modal View Styles */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 45, 36, 0.95); 
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .gallery-modal-content {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .gallery-modal.show .gallery-modal-content {
+            transform: scale(1);
+        }
+        .gallery-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #cbd5e1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .gallery-modal-close:hover {
+            color: #1da884;
+        }
+
+        /* Footer & Contact Layout */
+        footer { background: #0f2d24; color: white; padding: 50px 8% 20px; text-align: center; }
+        footer h3 { font-size: 22px; margin-bottom: 10px; }
+        footer .contact-info { color: #cbd5e1; margin-bottom: 25px; font-size: 15px; }
+        
+        .social-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .social-links a { color: white; text-decoration: none; font-weight: 600; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .social-links a:hover { color: #1da884; }
+        .social-links i { font-size: 18px; }
+
+        .footer-bottom { border-top: 1px solid #1a4a3c; padding-top: 20px; font-size: 13px; color: #94a3b8; }
+        .footer-bottom a { color: #94a3b8; text-decoration: none; }
+
+        /* Floating WhatsApp Action Button */
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: #25d366; 
+            color: white; 
+            padding: 15px 25px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .whatsapp-float:hover { transform: scale(1.05); background-color: #20ba5a; }
+        .whatsapp-float i { font-size: 20px; }
+
+        /* --- TWO-WAY SCROLL ANIMATION CONFIGURATION --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Agriplus Kenya</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Agriplus Kenya Logo">
+        </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
-            <a href="#seedlings">Catalog</a>
+            <a href="#catalog">Catalog</a>
+            <a href="#services">Services</a>
+            <a href="#location-hub">Location</a>
+            <a href="#faq">FAQs</a>
+            <a href="#gallery">Gallery</a>
         </nav>
     </header>
 
-    <section id="home" class="section">
-        <h2>Welcome to Agriplus Kenya</h2>
-        <p style="text-align: center;">Your trusted partner in high-quality, certified fruit tree seedlings. We help farmers grow wealth through agriculture.</p>
+    <section id="home" class="hero-banner">
+        <h2>High-Yield Certified Seedlings</h2>
+        <p>Your trusted partner in premium fruit tree propagation. We help Kenyan farmers maximize productivity and build long-term agro-wealth.</p>
     </section>
 
-    <section id="about" class="section" style="background: #e2e8f0;">
-        <h2>About Us</h2>
-        <p>At Agriplus, we specialize in grafted, drought-resistant seedlings suited for the Kenyan climate. Our nursery in Kajiado provides top-tier support for small and large-scale farmers alike.</p>
+    <section id="about" class="section animate-on-scroll">
+        <h2 class="section-title">About Our Nursery</h2>
+        <p class="about-text">
+            Based in Embu, Kenya, Agriplus Kenya specializes in superior, structurally sound grafted fruit tree seedlings. Our varieties are meticulously managed and climate-adapted to ensure early bearing, high disease resistance, and premium export quality.
+        </p>
     </section>
 
-    <section id="seedlings" class="section">
-        <h2>Our Seedlings</h2>
+    <section id="catalog" class="section">
+        <h2 class="section-title">Our Seedlings & Pricing</h2>
         <div class="seedling-grid">
-            <div class="seedling-card">
+
+            <div class="seedling-card animate-on-scroll">
                 <div class="seedling-img" style="background-image: url('pixie.jpg');"></div>
-                <div class="info"><h3>Grafted Pixie</h3><p class="price">KSh 200</p></div>
+                <div class="info">
+                    <span class="price-badge">KSh 200</span>
+                    <h3>Grafted Pixie Orange</h3>
+                    <p>High-yield, highly sweet, and excellent choice for semi-arid drought-prone areas.</p>
+                </div>
             </div>
-            <div class="seedling-card">
+
+            <div class="seedling-card animate-on-scroll">
                 <div class="seedling-img" style="background-image: url('avocado.jpg');"></div>
-                <div class="info"><h3>Hass Avocado</h3><p class="price">KSh 150</p></div>
+                <div class="info">
+                    <span class="price-badge">KSh 150</span>
+                    <h3>Grafted Hass Avocado</h3>
+                    <p>A true export-grade variety featuring exceptional oil content and heavy market demand.</p>
+                </div>
             </div>
+
+            <div class="seedling-card animate-on-scroll">
+                <div class="seedling-img" style="background-image: url('coffee.jpg');"></div>
+                <div class="info">
+                    <span class="price-badge">KSh 150</span>
+                    <h3>Premium Coffee Seedlings</h3>
+                    <p>High-yielding Ruiru 11 and Batian varieties. Meticulously bred for strong CBD and leaf rust resistance.</p>
+                </div>
             </div>
+
+            <div class="seedling-card animate-on-scroll">
+                <div class="seedling-img" style="background-image: url('mango-washington.jpg');"></div>
+                <div class="info">
+                    <span class="price-badge">KSh 150</span>
+                    <h3>Washington Navel</h3>
+                    <p>Aromatic, seedless, and highly durable orange variety with regular bearing traits.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card animate-on-scroll">
+                <div class="seedling-img" style="background-image: url('macadamia.jpg');"></div>
+                <div class="info">
+                    <span class="price-badge">KSh 250</span>
+                    <h3>Macadamia Nuts</h3>
+                    <p>Early-bearing, highly prolific clones structured for securing stable, long-term rural wealth.</p>
+                </div>
+            </div>
+
+            <div class="seedling-card animate-on-scroll">
+                <div class="seedling-img" style="background-image: url('apple.jpg');"></div>
+                <div class="info">
+                    <span class="price-badge">KSh 400</span>
+                    <h3>Tropical Apple</h3>
+                    <p>Premium, high-altitude acclimated selection designed for exceptional yields in Kenya.</p>
+                </div>
+            </div>
+
+        </div>
     </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Value-Added Agri-Services</h2>
+        <div class="services-grid">
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>Orchard Setup & Mapping</h3>
+                <p>Meticulous planning of land preparation layout, optimal multi-row tree spacing structures, and hole digging depth allocations tailored to your acreage.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-flask"></i></div>
+                <h3>Soil & Water Interpretation</h3>
+                <p>Professional assessment and guidance on structural amendments required for your farm's soil balance and irrigation system profiles before transplanting.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Post-Planting Support</h3>
+                <p>Ongoing operational advisory, strategic seasonal pruning frameworks, and targeted organic pest mitigation guidance to achieve maximum survival outcomes.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="how-to-order" class="section">
+        <h2 class="section-title">Simple 3-Step Ordering</h2>
+        <div class="steps-container">
+
+            <div class="step-card animate-on-scroll">
+                <div class="step-number">1</div>
+                <h3>Consultation & Verification</h3>
+                <p>Click our floating WhatsApp action button to communicate directly with our desk. We'll verify real-time stock availability and guide your selection balance.</p>
+            </div>
+
+            <div class="step-card animate-on-scroll">
+                <div class="step-number">2</div>
+                <h3>Booking Invoice & Deposit</h3>
+                <p>Receive an official nursery booking documentation breakdown specifying quantity, pricing parameters, and clear logistics allocations to confirm your order slot.</p>
+            </div>
+
+            <div class="step-card animate-on-scroll">
+                <div class="step-number">3</div>
+                <h3>Packaging & Safe Transit</h3>
+                <p>Your healthy blocks are loaded into protective organic transit crates and delivered smoothly countrywide to your exact region or major transport center hubs.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="location-hub" class="section">
+        <h2 class="section-title">Nursery Location Hub</h2>
+        <div class="location-container animate-on-scroll">
+            <div class="map-frame">
+                <iframe src="https://maps.google.com/maps?q=Embu,%20Kenya&t=&z=13&ie=UTF-8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="location-details">
+                <h3><i class="fas fa-map-marker-alt"></i> Visit Our Nursery</h3>
+                <p>Our main distribution propagation facility is based out of Embu, Kenya. This specific regional climate empowers us to harden off robust varieties perfectly built for reliable performance countrywide.</p>
+                <p>We openly welcome field visits for large commercial orders and pre-booked institutional allocations. Get directions directly via the map layout.</p>
+                <a href="https://maps.google.com/maps?q=Embu,%20Kenya" target="_blank" class="visit-btn">
+                    <i class="fas fa-directions"></i> Get Driving Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            
+            <details class="animate-on-scroll" open>
+                <summary>Where do you deliver?</summary>
+                <p>We provide efficient countrywide delivery services across Kenya. Whether you are farming in Central, Rift Valley, Eastern, Western, or Coast region, we make arrangements to ensure your consignment reaches your closest dynamic transit point or town safely.</p>
+            </details>
+
+            <details class="animate-on-scroll">
+                <summary>How is the seedling delivered?</summary>
+                <p>To ensure maximum survival rates, all seedlings are securely packaged in structured organic crates or custom bundles that protect the delicate root system and soil plugs during transportation. Larger orders are dispatched via vetted public transport couriers, dedicated agro-logistics partners, or custom farm pick-up routing based on your order capacity.</p>
+            </details>
+
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2 class="section-title">Nursery Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll"><img src="pixie.jpg" alt="Grafted Pixie Orange"></div>
+            <div class="gallery-item animate-on-scroll"><img src="avocado.jpg" alt="Grafted Hass Avocado"></div>
+            <div class="gallery-item animate-on-scroll"><img src="mango-washington.jpg" alt="Washington Navel"></div>
+            <div class="gallery-item animate-on-scroll"><img src="macadamia.jpg" alt="Macadamia Nuts"></div>
+            <div class="gallery-item animate-on-scroll"><img src="apple.jpg" alt="Tropical Apple"></div>
+        </div>
+    </section>
+
+    <div id="galleryModal" class="gallery-modal" onclick="closeLightbox()">
+        <span class="gallery-modal-close" onclick="closeLightbox()">&times;</span>
+        <img class="gallery-modal-content" id="modalImage">
+    </div>
 
     <footer>
-        <p>Contact: 0745948200 | Kajiado, Kenya</p>
+        <h3>Contact Us Today</h3>
+        <p class="contact-info">Location: Embu, Kenya &nbsp;|&nbsp; Email: <a href="mailto:agripluskenya@gmail.com" style="color: #1da884; text-decoration: none;">agripluskenya@gmail.com</a> &nbsp;|&nbsp; Phone: 0745948200</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61586732219637" target="_blank">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/agriplus_kenya/" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.tiktok.com/@agriplus_kenya?_r=1&_t=ZS-9757dijQ556" target="_blank">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://wa.me/254745948200" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Chat
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <p><a href="#">Terms & Conditions</a> &nbsp;|&nbsp; &copy; 2026 Agriplus Kenya. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <a href="https://wa.me/254745948200" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
+    </a>
+
+    <script>
+        // --- 1. LIGHTBOX GALLERY FUNCTIONALITY ---
+        const modal = document.getElementById("galleryModal");
+        const modalImg = document.getElementById("modalImage");
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function(e) {
+                e.stopPropagation(); 
+                modal.classList.add("show");
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeLightbox() {
+            modal.classList.remove("show");
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeLightbox();
+        });
+
+        // --- 2. TWO-WAY SCROLL ANIMATION LOGIC ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                } else {
+                    entry.target.classList.remove('appear');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -20px 0px"
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            scrollObserver.observe(element);
+        });
+    </script>
 
 </body>
 </html>
