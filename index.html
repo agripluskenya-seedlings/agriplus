@@ -8,28 +8,25 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
 
-        /* Smooth Reveal Animation */
-        .fade-in { animation: fadeIn 1s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Hero Section */
+        .hero-banner { text-align: center; padding: 60px 20px; background: #e0f2f1; }
+
+        /* The Grid Layout - THIS WAS MISSING */
+        .seedling-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            padding: 40px 10%; 
+            justify-items: center;
+        }
 
         /* Pricing & Badges */
-        .price-badge {
-            background: #1da884; color: white; padding: 5px 12px;
-            border-radius: 4px; font-weight: bold; font-size: 14px;
-            display: inline-block; margin-bottom: 10px;
-        }
+        .price-badge { background: #1da884; color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 10px; }
 
-        /* Updated Card Design */
-        .seedling-card {
-            background: #fff; border-radius: 12px; width: 300px;
-            overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        
+        /* Card Design */
+        .seedling-card { background: #fff; border-radius: 12px; width: 300px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; }
         .seedling-card:hover { transform: translateY(-10px); }
-
-        .seedling-img-holder { height: 200px; background-size: cover; background-position: center; }
-
+        .seedling-img-holder { height: 200px; background-size: cover; background-position: center; background-color: #ddd; }
         .seedling-info { padding: 20px; }
 
         /* Footer & Socials */
@@ -37,87 +34,45 @@
         .social-links a { color: #fff; margin: 0 10px; text-decoration: none; font-weight: bold; }
         .footer-bottom { margin-top: 20px; border-top: 1px solid #2d4a41; padding-top: 20px; font-size: 12px; }
 
-        /* Reusing your previous hero and grid styles... (rest of CSS goes here) */
+        /* WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-    <section class="hero-banner fade-in">
+    <section class="hero-banner">
         <h1>Agriplus Kenya Seedlings</h1>
         <p>Certified, High-Yield Varieties. Quality you can trust.</p>
     </section>
 
-    <section id="seedlings" class="content-section">
+    <section id="seedlings">
         <div class="seedling-grid">
-            
             <div class="seedling-card">
                 <div class="seedling-img-holder" style="background-image: url('pixie.jpg');"></div>
                 <div class="seedling-info">
                     <span class="price-badge">KSh 200</span>
                     <h3>Grafted Pixie Orange</h3>
-                    <p>High-yield, drought-resistant.</p>
                 </div>
             </div>
-
             <div class="seedling-card">
                 <div class="seedling-img-holder" style="background-image: url('avocado.jpg');"></div>
                 <div class="seedling-info">
                     <span class="price-badge">KSh 150</span>
                     <h3>Grafted Hass Avocado</h3>
-                    <p>Export grade, premium oil content.</p>
                 </div>
             </div>
-
-            <div class="seedling-card">
-                <div class="seedling-img-holder" style="background-image: url('mango-apple.jpg');"></div>
-                <div class="seedling-info">
-                    <span class="price-badge">KSh 150</span>
-                    <h3>Apple Mango</h3>
-                    <p>Fiber-free, sweet, popular market choice.</p>
-                </div>
             </div>
-
-            <div class="seedling-card">
-                <div class="seedling-img-holder" style="background-image: url('mango-washington.jpg');"></div>
-                <div class="seedling-info">
-                    <span class="price-badge">KSh 150</span>
-                    <h3>Washington Navel</h3>
-                    <p>Aromatic and durable.</p>
-                </div>
-            </div>
-
-            <div class="seedling-card">
-                <div class="seedling-img-holder" style="background-image: url('macadamia.jpg');"></div>
-                <div class="seedling-info">
-                    <span class="price-badge">KSh 250</span>
-                    <h3>Macadamia Nuts</h3>
-                    <p>Early-bearing, long-term wealth.</p>
-                </div>
-            </div>
-
-            <div class="seedling-card">
-                <div class="seedling-img-holder" style="background-image: url('apple.jpg');"></div>
-                <div class="seedling-info">
-                    <span class="price-badge">KSh 400</span>
-                    <h3>Tropical Apple</h3>
-                    <p>High altitude premium variety.</p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <footer class="site-footer">
         <h3>Contact Us</h3>
         <p>Kajiado, Kenya | 0745948200</p>
         <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61586732219637">Facebook</a> | <a href="https://www.instagram.com/agriplus_kenya/">Instagram</a> | <a href="#">WhatsApp</a>
-        </div>
-        <div class="footer-bottom">
-            <p><a href="#" style="color:white;">Terms & Conditions</a> | &copy; 2026 Agriplus Kenya</p>
+            <a href="https://www.facebook.com/profile.php?id=61586732219637">Facebook</a> | <a href="https://www.instagram.com/agriplus_kenya/">Instagram</a> | <a href="https://wa.me/254745948200">WhatsApp</a>
         </div>
     </footer>
 
-    <a href="https://wa.me/254745948200" class="whatsapp-float">WhatsApp</a>
+    <a href="https://wa.me/254745948200" class="whatsapp-float">WhatsApp Us</a>
 
 </body>
 </html>
